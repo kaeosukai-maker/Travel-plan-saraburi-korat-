@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แพลนเที่ยว สระบุรี - โคราช | 28-31 ธ.ค. 2568</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f4a;
+            --primary-light: #2d8b6a;
+            --secondary: #f4a261;
+            --accent: #e76f51;
+            --cream: #fefae0;
+            --earth: #606c38;
+            --sky: #87ceeb;
+            --night: #264653;
+            --white: #ffffff;
+            --shadow: rgba(26, 95, 74, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background: linear-gradient(180deg, var(--cream) 0%, #e9f5db 50%, #ccd5ae 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--night) 100%);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: shimmer 15s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-family: 'Kanit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .dates {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--night);
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .mountain-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Day Cards */
+        .day-card {
+            background: var(--white);
+            border-radius: 25px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .day-header {
+            padding: 25px 30px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .day-1 .day-header { background: linear-gradient(135deg, #2d8b6a 0%, #1a5f4a 100%); }
+        .day-2 .day-header { background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%); }
+        .day-3 .day-header { background: linear-gradient(135deg, #264653 0%, #1d3557 100%); }
+        .day-4 .day-header { background: linear-gradient(135deg, #606c38 0%, #3d4125 100%); }
+
+        .day-number {
+            background: rgba(255,255,255,0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .day-info h2 {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .day-info .date {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .day-content {
+            padding: 30px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-light), var(--secondary));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--white);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-item.highlight::before {
+            background: var(--secondary);
+            border-color: var(--accent);
+        }
+
+        .timeline-time {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--night);
+            margin-bottom: 5px;
+        }
+
+        .timeline-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: var(--cream);
+            color: var(--earth);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag.camp { background: #d4edda; color: #155724; }
+        .tag.nature { background: #cce5ff; color: #004085; }
+        .tag.cafe { background: #fff3cd; color: #856404; }
+        .tag.stay { background: #f8d7da; color: #721c24; }
+
+        /* Accommodation Section */
+        .accommodation-section {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .section-title {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .accommodation-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .accommodation-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .accommodation-card.booked {
+            border-left-color: var(--accent);
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+        }
+
+        .accommodation-card.optional {
+            border-left-color: var(--secondary);
+            background: linear-gradient(135deg, #fff8f0 0%, #ffe8d6 100%);
+        }
+
+        .accommodation-card h4 {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.1rem;
+            color: var(--night);
+            margin-bottom: 8px;
+        }
+
+        .accommodation-card .location {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .accommodation-card .features {
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge.booked { background: var(--accent); color: white; }
+        .badge.optional { background: var(--secondary); color: var(--night); }
+        .badge.recommend { background: var(--primary); color: white; }
+
+        /* Attractions Section */
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .attraction-item {
+            background: linear-gradient(135deg, var(--cream) 0%, #d4edda 100%);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .attraction-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .attraction-item .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .attraction-item .name {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 500;
+            color: var(--night);
+            font-size: 0.95rem;
+        }
+
+        .attraction-item .area {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        /* Route Map */
+        .route-section {
+            background: linear-gradient(135deg, var(--night) 0%, var(--primary) 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .route-section .section-title {
+            color: var(--white);
+        }
+
+        .route-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .route-point {
+            background: rgba(255,255,255,0.15);
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .route-point .city {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .route-point .distance {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .route-arrow {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .tips-section .section-title {
+            color: #856404;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #5a4a2a;
+        }
+
+        .tips-list li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .footer .emoji-row {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .day-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .route-flow {
+                flex-direction: column;
+            }
+            
+            .route-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="mountain-icon">🏕️⛰️🌲</div>
+            <h1>แพลนเที่ยว สระบุรี - โคราช</h1>
+            <div class="subtitle">Road Trip สายแคมป์ ใกล้ชิดธรรมชาติ</div>
+            <div class="dates">📅 28 - 31 ธันวาคม 2568</div>
+        </div>
+
+        <!-- Route Overview -->
+        <div class="route-section">
+            <div class="section-title">🗺️ เส้นทางการเดินทาง</div>
+            <div class="route-flow">
+                <div class="route-point">
+                    <div class="city">กรุงเทพฯ</div>
+                    <div class="distance">จุดเริ่มต้น</div>
+                </div>
+                <div class="route-arrow">→</div>
+                <div class="route-point">
+                    <div class="city">แก่งคอย สระบุรี</div>
+                    <div class="distance">~130 กม.</div>
+                </div>
+                <div class="route-arrow">→</div>
+                <div class="route-point">
+                    <div class="city">สีคิ้ว โคราช</div>
+                    <div class="distance">~70 กม.</div>
+                </div>
+                <div class="route-arrow">→</div>
+                <div class="route-point">
+                    <div class="city">กรุงเทพฯ</div>
+                    <div class="distance">~180 กม.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accommodation Section -->
+        <div class="accommodation-section">
+            <div class="section-title">🏨 ที่พักแนะนำ</div>
+            <div class="accommodation-grid">
+                <div class="accommodation-card booked">
+                    <h4>Zodiac Villa & Camping <span class="badge booked">จองแล้ว</span></h4>
+                    <div class="location">📍 ต.ชะอม อ.แก่งคอย จ.สระบุรี</div>
+                    <div class="features">✨ ติดลำธาร • มีลานกางเต็นท์ • Pet Friendly</div>
+                </div>
+                <div class="accommodation-card optional">
+                    <h4>วาฬบนเขาแคมป์ <span class="badge optional">ตัวเลือกเสริม</span></h4>
+                    <div class="location">📍 เขายายเที่ยง อ.สีคิ้ว จ.นครราชสีมา</div>
+                    <div class="features">✨ วิวทิวเขา • ลานหญ้านุ่ม • 150฿/คน/คืน</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>มาดูธาร แคมป์ปิ้ง <span class="badge recommend">แนะนำ</span></h4>
+                    <div class="location">📍 ต.ชะอม อ.แก่งคอย จ.สระบุรี</div>
+                    <div class="features">✨ ริมลำธาร • 200฿/คน/คืน</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>ไร่ภูนับดาว <span class="badge recommend">แนะนำ</span></h4>
+                    <div class="location">📍 อ.มวกเหล็ก จ.สระบุรี</div>
+                    <div class="features">✨ วิว 360° • มีคาเฟ่ • กิจกรรมฟาร์ม</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>Te Mata Glamping</h4>
+                    <div class="location">📍 เขาใหญ่ อ.ปากช่อง จ.นครราชสีมา</div>
+                    <div class="features">✨ Glamping หรู • วิวภูเขารอบด้าน</div>
+                </div>
+                <div class="accommodation-card">
+                    <h4>The Treat Farm Hotel</h4>
+                    <div class="location">📍 อ.แก่งคอย จ.สระบุรี</div>
+                    <div class="features">✨ สไตล์ Shepherd's Hut • Pool Villa</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="day-card day-1">
+            <div class="day-header">
+                <div class="day-number">1</div>
+                <div class="day-info">
+                    <h2>เดินทาง → สระบุรี</h2>
+                    <div class="date">วันอาทิตย์ที่ 28 ธันวาคม 2568</div>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌅 06:00 - 07:00</div>
+                        <div class="timeline-title">ออกเดินทางจากกรุงเทพฯ</div>
+                        <div class="timeline-desc">ใช้ถนนพหลโยธิน / มอเตอร์เวย์ หมายเลข 6 มุ่งหน้าสระบุรี</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">☕ 08:30 - 09:30</div>
+                        <div class="timeline-title">แวะกาแฟเช้า - Leaf Garden หรือ RAYY Cafe</div>
+                        <div class="timeline-desc">คาเฟ่บรรยากาศธรรมชาติ ริมแม่น้ำป่าสัก</div>
+                        <div class="tags">
+                            <span class="tag cafe">☕ คาเฟ่</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌊 10:00 - 12:00</div>
+                        <div class="timeline-title">น้ำตกเจ็ดสาวน้อย</div>
+                        <div class="timeline-desc">น้ำตกใสเย็น เล่นน้ำได้ อยู่ในอุทยานฯ น้ำตกเจ็ดสาวน้อย</div>
+                        <div class="tags">
+                            <span class="tag nature">🌿 ธรรมชาติ</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🍜 12:30 - 14:00</div>
+                        <div class="timeline-title">รับประทานอาหารกลางวัน</div>
+                        <div class="timeline-desc">ร้านอาหารพื้นเมืองแถวมวกเหล็ก หรือร้านในที่พัก</div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-time">🏕️ 14:30</div>
+                        <div class="timeline-title">เช็คอิน Zodiac Villa & Camping</div>
+                        <div class="timeline-desc">พักผ่อน กางเต็นท์ เล่นน้ำลำธาร</div>
+                        <div class="tags">
+                            <span class="tag camp">⛺ แคมป์</span>
+                            <span class="tag stay">🏨 ที่พัก</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌅 17:00 - 18:30</div>
+                        <div class="timeline-title">ชมพระอาทิตย์ตก ริมลำธาร</div>
+                        <div class="timeline-desc">นั่งชิลล์ หมูกระทะ บาร์บีคิว ริมน้ำ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card day-2">
+            <div class="day-header">
+                <div class="day-number">2</div>
+                <div class="day-info">
+                    <h2>สำรวจสระบุรี → เขายายเที่ยง</h2>
+                    <div class="date">วันจันทร์ที่ 29 ธันวาคม 2568</div>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌄 07:00 - 08:30</div>
+                        <div class="timeline-title">ตื่นเช้า สูดอากาศบริสุทธิ์</div>
+                        <div class="timeline-desc">เดินเล่นริมลำธาร ถ่ายรูป รับประทานอาหารเช้า</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌸 09:00 - 11:00</div>
+                        <div class="timeline-title">สวนบิ๊กเต้ (สวนเบญจมาศ)</div>
+                        <div class="timeline-desc">ทุ่งดอกเบญจมาศกว่า 100 ไร่ ถ่ายรูปสวยๆ</div>
+                        <div class="tags">
+                            <span class="tag nature">🌼 สวนดอกไม้</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🍇 11:30 - 12:30</div>
+                        <div class="timeline-title">ไร่ภูนวพันธ์ (สวนองุ่น)</div>
+                        <div class="timeline-desc">ชิมองุ่นสด ซื้อของฝาก ผลิตภัณฑ์จากองุ่น</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🍽️ 13:00 - 14:00</div>
+                        <div class="timeline-title">อาหารกลางวัน + เดินทางไปโคราช</div>
+                        <div class="timeline-desc">ใช้ถนนมิตรภาพ มุ่งหน้า อ.สีคิ้ว (~70 กม.)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🏔️ 15:30 - 17:30</div>
+                        <div class="timeline-title">เขายายเที่ยง - กังหันลม</div>
+                        <div class="timeline-desc">ปั่นจักรยานชมวิว (40฿/ชม.) ถ่ายรูปกังหันลมยักษ์ วิวเขื่อนลำตะคอง</div>
+                        <div class="tags">
+                            <span class="tag nature">🌬️ กังหันลม</span>
+                            <span class="tag nature">🚴 ปั่นจักรยาน</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-time">⛺ 18:00</div>
+                        <div class="timeline-title">เช็คอิน วาฬบนเขาแคมป์</div>
+                        <div class="timeline-desc">หรือที่พักอื่นในเขายายเที่ยง / เขาใหญ่</div>
+                        <div class="tags">
+                            <span class="tag camp">⛺ แคมป์</span>
+                            <span class="tag stay">🏨 ที่พัก</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌌 20:00</div>
+                        <div class="timeline-title">ชมดาว กินหมูกะทะ</div>
+                        <div class="timeline-desc">อากาศเย็นสบาย ดาวเต็มฟ้า</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card day-3">
+            <div class="day-header">
+                <div class="day-number">3</div>
+                <div class="day-info">
+                    <h2>เขาใหญ่ / วันผ่อนคลาย</h2>
+                    <div class="date">วันอังคารที่ 30 ธันวาคม 2568</div>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌅 06:00 - 07:00</div>
+                        <div class="timeline-title">ชมพระอาทิตย์ขึ้น / ทะเลหมอก</div>
+                        <div class="timeline-desc">บริเวณเขายายเที่ยง หรือจุดชมวิวใกล้เคียง</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">☕ 08:00 - 09:30</div>
+                        <div class="timeline-title">อาหารเช้า + คาเฟ่</div>
+                        <div class="timeline-desc">Campsite Cafe เขายายเที่ยง หรือคาเฟ่แถวปากช่อง</div>
+                        <div class="tags">
+                            <span class="tag cafe">☕ คาเฟ่</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌲 10:00 - 14:00</div>
+                        <div class="timeline-title">อุทยานแห่งชาติเขาใหญ่ (ทางเลือก)</div>
+                        <div class="timeline-desc">ชมน้ำตกเหวสุวัต / ผาเดียวดาย / เดินป่า<br>หรือพักผ่อนที่ที่พัก เล่นน้ำ นอนอ่านหนังสือ</div>
+                        <div class="tags">
+                            <span class="tag nature">🌿 อุทยานฯ</span>
+                            <span class="tag nature">💦 น้ำตก</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🍽️ 14:30 - 16:00</div>
+                        <div class="timeline-title">อาหารกลางวัน / ช้อปปิ้ง</div>
+                        <div class="timeline-desc">ร้านอาหารเขาใหญ่ / ตลาดท้องถิ่น</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🛖 16:30</div>
+                        <div class="timeline-title">พักผ่อนที่ที่พัก</div>
+                        <div class="timeline-desc">เตรียมตัวสำหรับการเดินทางกลับวันพรุ่งนี้<br>คืนสุดท้าย ปาร์ตี้เล็กๆ ต้อนรับปีใหม่ล่วงหน้า!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card day-4">
+            <div class="day-header">
+                <div class="day-number">4</div>
+                <div class="day-info">
+                    <h2>เดินทางกลับ กรุงเทพฯ</h2>
+                    <div class="date">วันพุธที่ 31 ธันวาคม 2568</div>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">🌄 06:00 - 07:00</div>
+                        <div class="timeline-title">ตื่นเช้า เก็บสัมภาระ</div>
+                        <div class="timeline-desc">รับประทานอาหารเช้าเบาๆ</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">🚗 07:30</div>
+                        <div class="timeline-title">ออกเดินทางกลับกรุงเทพฯ</div>
+                        <div class="timeline-desc">ใช้ถนนมิตรภาพ / มอเตอร์เวย์ กลับบ้าน</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">☕ 09:00 - 09:30</div>
+                        <div class="timeline-title">แวะพักเติมน้ำมัน / กาแฟ</div>
+                        <div class="timeline-desc">สถานีบริการระหว่างทาง</div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-time">🏠 11:00 - 12:00</div>
+                        <div class="timeline-title">ถึงกรุงเทพฯ โดยสวัสดิภาพ</div>
+                        <div class="timeline-desc">พักผ่อน เตรียมตัวฉลองปีใหม่! 🎉</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attractions -->
+        <div class="accommodation-section">
+            <div class="section-title">📍 สถานที่ท่องเที่ยวแนะนำ</div>
+            <div class="attractions-grid">
+                <div class="attraction-item">
+                    <div class="icon">💦</div>
+                    <div class="name">น้ำตกเจ็ดสาวน้อย</div>
+                    <div class="area">มวกเหล็ก สระบุรี</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🌊</div>
+                    <div class="name">น้ำตกมวกเหล็ก</div>
+                    <div class="area">มวกเหล็ก สระบุรี</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🌸</div>
+                    <div class="name">สวนบิ๊กเต้</div>
+                    <div class="area">มวกเหล็ก สระบุรี</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🍇</div>
+                    <div class="name">ไร่ภูนวพันธ์</div>
+                    <div class="area">แก่งคอย สระบุรี</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🐉</div>
+                    <div class="name">ถ้ำนาคา วัดแก่งคอย</div>
+                    <div class="area">แก่งคอย สระบุรี</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🌲</div>
+                    <div class="name">ศูนย์เจ็ดคด-โป่งก้อนเส้า</div>
+                    <div class="area">แก่งคอย สระบุรี</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🌬️</div>
+                    <div class="name">กังหันลมเขายายเที่ยง</div>
+                    <div class="area">สีคิ้ว โคราช</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🏞️</div>
+                    <div class="name">เขื่อนลำตะคอง</div>
+                    <div class="area">สีคิ้ว โคราช</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🏔️</div>
+                    <div class="name">อุทยานฯ เขาใหญ่</div>
+                    <div class="area">ปากช่อง โคราช</div>
+                </div>
+                <div class="attraction-item">
+                    <div class="icon">🌿</div>
+                    <div class="name">น้ำตกเหวสุวัต</div>
+                    <div class="area">เขาใหญ่</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="tips-section">
+            <div class="section-title">💡 เคล็ดลับการเดินทาง</div>
+            <ul class="tips-list">
+                <li>ออกเดินทางเช้าเพื่อเลี่ยงรถติด โดยเฉพาะช่วงวันหยุดยาว</li>
+                <li>เตรียมเสื้อกันหนาว อากาศเย็นตอนเช้าและกลางคืน (15-20°C)</li>
+                <li>จองที่พักล่วงหน้า ช่วงสิ้นปีคนเยอะมาก!</li>
+                <li>ถ้านำเต็นท์มาเอง เช็คสภาพอุปกรณ์ให้พร้อม</li>
+                <li>Zodiac Villa & Camping อาจไม่มีสัญญาณโทรศัพท์ โหลดแผนที่ Offline ไว้</li>
+                <li>เตรียมของกิน/ปิ้งย่าง เพราะบางที่พักอยู่ไกลร้านอาหาร</li>
+                <li>อย่าลืมถังน้ำแข็ง ไฟฉาย และยากันยุง</li>
+                <li>กลับเช้าวันที่ 31 เพื่อหลีกเลี่ยงรถติดช่วงเย็นก่อนปีใหม่</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="emoji-row">🌲⛺🏕️🌄✨</div>
+            <p>สุขสันต์วันหยุด! ขอให้เที่ยวสนุก ปลอดภัย 🎄🎉</p>
+            <p style="margin-top: 10px; opacity: 0.7;">สร้างโดย Claude AI • ข้อมูลอัปเดต ธันวาคม 2568</p>
+        </div>
+    </div>
+</body>
+</html>
