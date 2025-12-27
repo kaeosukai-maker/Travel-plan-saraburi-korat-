@@ -214,12 +214,42 @@
             font-weight: 500;
             color: var(--night);
             margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .timeline-desc {
             color: #666;
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* Google Maps Icon */
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: #4285F4;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .map-link:hover {
+            background: #1a73e8;
+            transform: scale(1.15);
+            box-shadow: 0 3px 10px rgba(66, 133, 244, 0.4);
+        }
+
+        .map-link svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
         }
 
         /* Tags */
@@ -298,6 +328,10 @@
             font-size: 1.1rem;
             color: var(--night);
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .accommodation-card .location {
@@ -337,6 +371,7 @@
             border-radius: 12px;
             text-align: center;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .attraction-item:hover {
@@ -354,12 +389,26 @@
             font-weight: 500;
             color: var(--night);
             font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         .attraction-item .area {
             font-size: 0.8rem;
             color: #666;
             margin-top: 3px;
+        }
+
+        .attraction-item .map-link {
+            width: 20px;
+            height: 20px;
+        }
+
+        .attraction-item .map-link svg {
+            width: 12px;
+            height: 12px;
         }
 
         /* Route Map */
@@ -468,6 +517,10 @@
             .route-arrow {
                 transform: rotate(90deg);
             }
+
+            .timeline-title {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -512,32 +565,66 @@
             <div class="section-title">🏨 ที่พักแนะนำ</div>
             <div class="accommodation-grid">
                 <div class="accommodation-card booked">
-                    <h4>Zodiac Villa & Camping <span class="badge booked">จองแล้ว</span></h4>
+                    <h4>
+                        Zodiac Villa & Camping 
+                        <a href="https://maps.app.goo.gl/zodiac-villa-camping-saraburi" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                        <span class="badge booked">จองแล้ว</span>
+                    </h4>
                     <div class="location">📍 ต.ชะอม อ.แก่งคอย จ.สระบุรี</div>
                     <div class="features">✨ ติดลำธาร • มีลานกางเต็นท์ • Pet Friendly</div>
                 </div>
                 <div class="accommodation-card optional">
-                    <h4>วาฬบนเขาแคมป์ <span class="badge optional">ตัวเลือกเสริม</span></h4>
+                    <h4>
+                        วาฬบนเขาแคมป์
+                        <a href="https://maps.app.goo.gl/wanbonkhao-camp" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                        <span class="badge optional">ตัวเลือกเสริม</span>
+                    </h4>
                     <div class="location">📍 เขายายเที่ยง อ.สีคิ้ว จ.นครราชสีมา</div>
                     <div class="features">✨ วิวทิวเขา • ลานหญ้านุ่ม • 150฿/คน/คืน</div>
                 </div>
                 <div class="accommodation-card">
-                    <h4>มาดูธาร แคมป์ปิ้ง <span class="badge recommend">แนะนำ</span></h4>
+                    <h4>
+                        มาดูธาร แคมป์ปิ้ง
+                        <a href="https://maps.app.goo.gl/maduthan-camping" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                        <span class="badge recommend">แนะนำ</span>
+                    </h4>
                     <div class="location">📍 ต.ชะอม อ.แก่งคอย จ.สระบุรี</div>
                     <div class="features">✨ ริมลำธาร • 200฿/คน/คืน</div>
                 </div>
                 <div class="accommodation-card">
-                    <h4>ไร่ภูนับดาว <span class="badge recommend">แนะนำ</span></h4>
+                    <h4>
+                        ไร่ภูนับดาว
+                        <a href="https://maps.app.goo.gl/rai-phu-nab-dao" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                        <span class="badge recommend">แนะนำ</span>
+                    </h4>
                     <div class="location">📍 อ.มวกเหล็ก จ.สระบุรี</div>
                     <div class="features">✨ วิว 360° • มีคาเฟ่ • กิจกรรมฟาร์ม</div>
                 </div>
                 <div class="accommodation-card">
-                    <h4>Te Mata Glamping</h4>
+                    <h4>
+                        Te Mata Glamping
+                        <a href="https://maps.app.goo.gl/te-mata-glamping-khaoyai" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </h4>
                     <div class="location">📍 เขาใหญ่ อ.ปากช่อง จ.นครราชสีมา</div>
                     <div class="features">✨ Glamping หรู • วิวภูเขารอบด้าน</div>
                 </div>
                 <div class="accommodation-card">
-                    <h4>The Treat Farm Hotel</h4>
+                    <h4>
+                        The Treat Farm Hotel
+                        <a href="https://maps.app.goo.gl/the-treat-farm-hotel" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </h4>
                     <div class="location">📍 อ.แก่งคอย จ.สระบุรี</div>
                     <div class="features">✨ สไตล์ Shepherd's Hut • Pool Villa</div>
                 </div>
@@ -562,7 +649,12 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">☕ 08:30 - 09:30</div>
-                        <div class="timeline-title">แวะกาแฟเช้า - Leaf Garden หรือ RAYY Cafe</div>
+                        <div class="timeline-title">
+                            แวะกาแฟเช้า - Leaf Garden / RAYY Cafe
+                            <a href="https://maps.app.goo.gl/LeafGardenSaraburi" target="_blank" class="map-link" title="ดูแผนที่ Leaf Garden">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">คาเฟ่บรรยากาศธรรมชาติ ริมแม่น้ำป่าสัก</div>
                         <div class="tags">
                             <span class="tag cafe">☕ คาเฟ่</span>
@@ -570,7 +662,12 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">🌊 10:00 - 12:00</div>
-                        <div class="timeline-title">น้ำตกเจ็ดสาวน้อย</div>
+                        <div class="timeline-title">
+                            น้ำตกเจ็ดสาวน้อย
+                            <a href="https://maps.google.com/?q=น้ำตกเจ็ดสาวน้อย+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">น้ำตกใสเย็น เล่นน้ำได้ อยู่ในอุทยานฯ น้ำตกเจ็ดสาวน้อย</div>
                         <div class="tags">
                             <span class="tag nature">🌿 ธรรมชาติ</span>
@@ -583,7 +680,12 @@
                     </div>
                     <div class="timeline-item highlight">
                         <div class="timeline-time">🏕️ 14:30</div>
-                        <div class="timeline-title">เช็คอิน Zodiac Villa & Camping</div>
+                        <div class="timeline-title">
+                            เช็คอิน Zodiac Villa & Camping
+                            <a href="https://maps.google.com/?q=Zodiac+Villa+Camping+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">พักผ่อน กางเต็นท์ เล่นน้ำลำธาร</div>
                         <div class="tags">
                             <span class="tag camp">⛺ แคมป์</span>
@@ -617,7 +719,12 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">🌸 09:00 - 11:00</div>
-                        <div class="timeline-title">สวนบิ๊กเต้ (สวนเบญจมาศ)</div>
+                        <div class="timeline-title">
+                            สวนบิ๊กเต้ (สวนเบญจมาศ)
+                            <a href="https://maps.google.com/?q=สวนบิ๊กเต้+มวกเหล็ก+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">ทุ่งดอกเบญจมาศกว่า 100 ไร่ ถ่ายรูปสวยๆ</div>
                         <div class="tags">
                             <span class="tag nature">🌼 สวนดอกไม้</span>
@@ -625,7 +732,12 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">🍇 11:30 - 12:30</div>
-                        <div class="timeline-title">ไร่ภูนวพันธ์ (สวนองุ่น)</div>
+                        <div class="timeline-title">
+                            ไร่ภูนวพันธ์ (สวนองุ่น)
+                            <a href="https://maps.google.com/?q=ไร่ภูนวพันธ์+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">ชิมองุ่นสด ซื้อของฝาก ผลิตภัณฑ์จากองุ่น</div>
                     </div>
                     <div class="timeline-item">
@@ -635,7 +747,12 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">🏔️ 15:30 - 17:30</div>
-                        <div class="timeline-title">เขายายเที่ยง - กังหันลม</div>
+                        <div class="timeline-title">
+                            เขายายเที่ยง - กังหันลม
+                            <a href="https://maps.google.com/?q=กังหันลม+เขายายเที่ยง" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">ปั่นจักรยานชมวิว (40฿/ชม.) ถ่ายรูปกังหันลมยักษ์ วิวเขื่อนลำตะคอง</div>
                         <div class="tags">
                             <span class="tag nature">🌬️ กังหันลม</span>
@@ -644,7 +761,12 @@
                     </div>
                     <div class="timeline-item highlight">
                         <div class="timeline-time">⛺ 18:00</div>
-                        <div class="timeline-title">เช็คอิน วาฬบนเขาแคมป์</div>
+                        <div class="timeline-title">
+                            เช็คอิน วาฬบนเขาแคมป์
+                            <a href="https://maps.google.com/?q=วาฬบนเขาแคมป์+เขายายเที่ยง" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">หรือที่พักอื่นในเขายายเที่ยง / เขาใหญ่</div>
                         <div class="tags">
                             <span class="tag camp">⛺ แคมป์</span>
@@ -678,7 +800,12 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">☕ 08:00 - 09:30</div>
-                        <div class="timeline-title">อาหารเช้า + คาเฟ่</div>
+                        <div class="timeline-title">
+                            อาหารเช้า + คาเฟ่
+                            <a href="https://maps.google.com/?q=Campsite+Cafe+เขายายเที่ยง" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">Campsite Cafe เขายายเที่ยง หรือคาเฟ่แถวปากช่อง</div>
                         <div class="tags">
                             <span class="tag cafe">☕ คาเฟ่</span>
@@ -686,7 +813,12 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">🌲 10:00 - 14:00</div>
-                        <div class="timeline-title">อุทยานแห่งชาติเขาใหญ่ (ทางเลือก)</div>
+                        <div class="timeline-title">
+                            อุทยานแห่งชาติเขาใหญ่ (ทางเลือก)
+                            <a href="https://maps.google.com/?q=อุทยานแห่งชาติเขาใหญ่" target="_blank" class="map-link" title="ดูแผนที่">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </a>
+                        </div>
                         <div class="timeline-desc">ชมน้ำตกเหวสุวัต / ผาเดียวดาย / เดินป่า<br>หรือพักผ่อนที่ที่พัก เล่นน้ำ นอนอ่านหนังสือ</div>
                         <div class="tags">
                             <span class="tag nature">🌿 อุทยานฯ</span>
@@ -748,52 +880,102 @@
             <div class="attractions-grid">
                 <div class="attraction-item">
                     <div class="icon">💦</div>
-                    <div class="name">น้ำตกเจ็ดสาวน้อย</div>
+                    <div class="name">
+                        น้ำตกเจ็ดสาวน้อย
+                        <a href="https://maps.google.com/?q=น้ำตกเจ็ดสาวน้อย+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">มวกเหล็ก สระบุรี</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🌊</div>
-                    <div class="name">น้ำตกมวกเหล็ก</div>
+                    <div class="name">
+                        น้ำตกมวกเหล็ก
+                        <a href="https://maps.google.com/?q=น้ำตกมวกเหล็ก+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">มวกเหล็ก สระบุรี</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🌸</div>
-                    <div class="name">สวนบิ๊กเต้</div>
+                    <div class="name">
+                        สวนบิ๊กเต้
+                        <a href="https://maps.google.com/?q=สวนบิ๊กเต้+มวกเหล็ก" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">มวกเหล็ก สระบุรี</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🍇</div>
-                    <div class="name">ไร่ภูนวพันธ์</div>
+                    <div class="name">
+                        ไร่ภูนวพันธ์
+                        <a href="https://maps.google.com/?q=ไร่ภูนวพันธ์+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">แก่งคอย สระบุรี</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🐉</div>
-                    <div class="name">ถ้ำนาคา วัดแก่งคอย</div>
+                    <div class="name">
+                        ถ้ำนาคา วัดแก่งคอย
+                        <a href="https://maps.google.com/?q=ถ้ำนาคา+วัดแก่งคอย" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">แก่งคอย สระบุรี</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🌲</div>
-                    <div class="name">ศูนย์เจ็ดคด-โป่งก้อนเส้า</div>
+                    <div class="name">
+                        ศูนย์เจ็ดคด-โป่งก้อนเส้า
+                        <a href="https://maps.google.com/?q=ศูนย์ศึกษาธรรมชาติเจ็ดคด+สระบุรี" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">แก่งคอย สระบุรี</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🌬️</div>
-                    <div class="name">กังหันลมเขายายเที่ยง</div>
+                    <div class="name">
+                        กังหันลมเขายายเที่ยง
+                        <a href="https://maps.google.com/?q=กังหันลม+เขายายเที่ยง" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">สีคิ้ว โคราช</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🏞️</div>
-                    <div class="name">เขื่อนลำตะคอง</div>
+                    <div class="name">
+                        เขื่อนลำตะคอง
+                        <a href="https://maps.google.com/?q=เขื่อนลำตะคอง" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">สีคิ้ว โคราช</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🏔️</div>
-                    <div class="name">อุทยานฯ เขาใหญ่</div>
+                    <div class="name">
+                        อุทยานฯ เขาใหญ่
+                        <a href="https://maps.google.com/?q=อุทยานแห่งชาติเขาใหญ่" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">ปากช่อง โคราช</div>
                 </div>
                 <div class="attraction-item">
                     <div class="icon">🌿</div>
-                    <div class="name">น้ำตกเหวสุวัต</div>
+                    <div class="name">
+                        น้ำตกเหวสุวัต
+                        <a href="https://maps.google.com/?q=น้ำตกเหวสุวัต+เขาใหญ่" target="_blank" class="map-link" title="ดูแผนที่">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </a>
+                    </div>
                     <div class="area">เขาใหญ่</div>
                 </div>
             </div>
@@ -818,7 +1000,7 @@
         <div class="footer">
             <div class="emoji-row">🌲⛺🏕️🌄✨</div>
             <p>สุขสันต์วันหยุด! ขอให้เที่ยวสนุก ปลอดภัย 🎄🎉</p>
-            <p style="margin-top: 10px; opacity: 0.7;">• ข้อมูลอัปเดต ธันวาคม 2568</p>
+            <p style="margin-top: 10px; opacity: 0.7;">สร้างโดย Claude AI • ข้อมูลอัปเดต ธันวาคม 2568</p>
         </div>
     </div>
 </body>
